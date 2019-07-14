@@ -16,28 +16,19 @@ class App extends Component {
   handleInputChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
-    this.setState(
-      {
-        [name]: value
-      },
-      () => { this.formValidation(name, value) }
-    )
+    this.setState({ [name]: value }, () => { this.formValidation(name, value) })
   }
 
   formValidation = (name, value) => {
-    
     switch (name) {
-      
       case 'email':
         const validateEmail = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
         let validEmail = validateEmail ? 'is-valid' : 'is-invalid';
         this.setState({ validEmail: validEmail });
         break;
-
       case 'password':
         this.setState({ validPassword: value.length >= 8 ? 'is-valid' : 'is-invalid' })
         break;
-
       default: break;
     }
   }

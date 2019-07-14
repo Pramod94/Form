@@ -1,16 +1,17 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Constants from '../../Constants';
+import '../Form/Form_Style.css';
 
 function Form(props) {
   return (
-    <div>
-      <form>
+    <div className="Background-Layout">
+      <form className="Form-Layout">
         <div className={Constants.bootstrap_class}>
           <label>{Constants.email_lable}</label>
-          <input type={Constants.email_type} className={`${Constants.formClassName} ${props.validEmail}`} 
-          placeholder={Constants.email_placeholder} name={Constants.email_name}
-          value={props.email} onChange={props.change}
+          <input type={Constants.email_type} className={`${Constants.formClassName} ${props.validEmail}`}
+            placeholder={Constants.email_placeholder} name={Constants.email_name}
+            value={props.email} onChange={props.change}
           />
           <div className={Constants.bootstrap.valid_feedback}>
             {Constants.success}
@@ -22,20 +23,20 @@ function Form(props) {
 
         <div className={Constants.bootstrap_class}>
           <label>{Constants.pasword_lable}</label>
-          <input type={Constants.password_type} className={`${Constants.formClassName} ${props.validPassword}`} 
-          placeholder={Constants.password_placeholder} name={Constants.password_name}
+          <input type={Constants.password_type} className={`${Constants.formClassName} ${props.validPassword}`}
+            placeholder={Constants.password_placeholder} name={Constants.password_name}
             value={props.psw} onChange={props.change}
           />
           <div className={Constants.bootstrap.valid_feedback}>
-          {Constants.success}
+            {Constants.success}
           </div>
           <div className={Constants.bootstrap.invalid_feedback}>
             {Constants.wrong_password}
           </div>
         </div>
-        
+
         <button className={Constants.button}
-          disabled={!(props.validEmail === Constants.button_validation && 
+          disabled={!(props.validEmail === Constants.button_validation &&
           props.validPassword === Constants.button_validation)}>
           {Constants.button_value}
         </button>
